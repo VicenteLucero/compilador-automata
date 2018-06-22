@@ -64,7 +64,7 @@
 /* Copy the first part of user declarations.  */
 #line 2 "noticia.y" /* yacc.c:339  */
 
-#include <cstdio>
+#include <stdio.h>
 #include <iostream>
 using namespace std;
 
