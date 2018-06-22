@@ -45,15 +45,18 @@ extern int yydebug;
 # define YYTOKENTYPE
   enum yytokentype
   {
-    NOTICIA = 258,
-    TYPE = 259,
-    END = 260,
-    ENDL = 261,
-    INT = 262,
-    FLOAT = 263,
-    STRING = 264,
-    TEXTO = 265,
-    FECHA = 266
+    TYPE = 258,
+    CUERPO = 259,
+    TAG = 260,
+    AUTOR = 261,
+    TITULO = 262,
+    END = 263,
+    ENDL = 264,
+    INT = 265,
+    FLOAT = 266,
+    STRING = 267,
+    TEXTO = 268,
+    FECHA = 269
   };
 #endif
 
@@ -69,7 +72,7 @@ union YYSTYPE
 	char *sval;
 	
 
-#line 73 "noticia.tab.h" /* yacc.c:1909  */
+#line 76 "noticia.tab.h" /* yacc.c:1909  */
 };
 
 typedef union YYSTYPE YYSTYPE;

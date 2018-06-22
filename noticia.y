@@ -25,14 +25,16 @@ void yyerror(const char *s);
 }
 
 // define the constant-string tokens:
-%token NOTICIA TYPE
+%token TYPE CUERPO TAG AUTOR TITULO
 %token END ENDL
 
 // define the "terminal symbol" token types I'm going to use (in CAPS
 // by convention), and associate each with a field of the union:
-%token <ival> INT
-%token <fval> FLOAT
-%token <sval> STRING TEXTO FECHA
+%token<ival> INT
+%token<fval> FLOAT
+%token<sval> STRING TEXTO FECHA
+
+
 
 
 
@@ -44,8 +46,9 @@ noticia:
 	header template body_section footer { cout << "Here's a Potato" << endl; }
 	;
 header:
-	NOTICIA TEXTO ENDLS { cout << "Titulo: " << $2 << endl; }
+	TAG TITULO TAG TEXTO ENDLS { cout <<"Titulo: \n"<< $4 << "\n" << endl; }
 	;
+	
 template:
 	typelines
 	;
@@ -54,8 +57,10 @@ typelines:
 	| typeline
 	;
 typeline:
-	TYPE FECHA ENDLS { cout << "Fecha: " << $2 << endl; }
+	TYPE FECHA ENDLS { cout << "Fecha: \n" << $2 << "\n" << endl; }
 	;
+
+	
 body_section:
 	body_lines
 	;
@@ -64,7 +69,8 @@ body_lines:
 	| body_line
 	;
 body_line:
-	STRING ENDLS { cout << "Noticia: " << $1 << endl; }
+	TAG CUERPO TAG TEXTO ENDLS {cout <<$4 << endl;}
+	| TAG AUTOR TAG TEXTO ENDLS { cout << "Author:\n" << $4 << "\n" <<  endl;}
 	;
 footer:
 	END ENDLS

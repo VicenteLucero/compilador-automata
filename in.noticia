@@ -1,4 +1,6 @@
-Noticia "Hombre muere"
-type 12.12.1995
-LOL
+|Titulo| "Hombre muere"
+Fecha 12.12.1995
+|Autor| "Vicente Lucero"
+|Cuerpo| "Todo."
+|Cuerpo| "nunca sabran quien fue"
 end
